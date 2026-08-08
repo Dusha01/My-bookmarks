@@ -1,2 +1,2 @@
 # My-bookmarks
-setting, utils
+settings, utils
