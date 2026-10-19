@@ -192,4 +192,7 @@ sudo docker run --rm hello-world
 
 ## ➡️ Что дальше
 
-→ [nginx/](./nginx/) — reverse-proxy Nginx + Certbot, SSL и логи по доменам
+1. [basics.md](./basics.md) — образы, порты, тома, сети  
+2. [cheatsheet.md](./cheatsheet.md) — быстрые команды  
+3. [compose.md](./compose.md) — несколько сервисов  
+4. [../nginx/](../nginx/) — reverse-proxy Nginx + Certbot

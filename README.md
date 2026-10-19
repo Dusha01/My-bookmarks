@@ -25,7 +25,7 @@
 |------|------|
 | [custom-terminal.md](./custom-terminal.md) | ✏️ Настройка терминала: `nano`, `bashrc`, алиасы, история, `gitconfig` |
 | [first-setting-vps.md](./first-setting-vps.md) | 🔒 Первая настройка VPS: sudo-user, SSH, fail2ban, UFW |
-| [install-docker.md](./install-docker.md) | 🐳 Установка Docker Engine и Compose на VPS |
+| [docker/](./docker/) | 🐳 Docker: установка, теория, команды, Compose, cleanup |
 | [nginx/](./nginx/) | 🌐 Nginx + Certbot: init-конфиг, SSL, логи по доменам |
 
 > По мере появления новых заметок таблица будет расширяться.
@@ -47,7 +47,7 @@ source ~/.bashrc
 ## 🗺 Планируемые темы
 
 - [x] SSH и ключи / первая настройка VPS
-- [x] Docker / контейнеры (установка)
+- [x] Docker / контейнеры (установка, теория, команды, Compose)
 - [x] Nginx + Certbot (SSL, логи по доменам)
 - [ ] systemd / сервисы
 - [ ] сеть и firewall (расширенно)

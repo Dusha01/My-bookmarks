@@ -22,7 +22,7 @@
 
 ## ✅ Перед стартом
 
-- [ ] Установлен Docker — см. [../install-docker.md](../install-docker.md)
+- [ ] Установлен Docker — см. [../docker/](../docker/)
 - [ ] Домен(ы) указывают A/AAAA на IP VPS
 - [ ] В UFW открыты `80/tcp` и `443/tcp`
 - [ ] Есть внешние docker-сети приложений (если proxy на контейнеры)

@@ -595,4 +595,4 @@ journalctl -u ssh -n 50 --no-pager
 
 После базовой защиты сервера можно поставить Docker:
 
-→ [install-docker.md](./install-docker.md) — Docker Engine + Compose
+→ [docker/](./docker/) — Docker Engine, Compose, команды и обслуживание
