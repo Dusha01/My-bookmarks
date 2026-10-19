@@ -187,3 +187,9 @@ sudo docker run --rm hello-world
 | `docker compose`: command not found | Поставь `docker-compose-plugin` или бинарник из §3 |
 | `apt update` ругается на ключ/репо | Проверь Ubuntu vs Debian URL и путь к `docker.gpg` |
 | Сервис не стартует | `journalctl -u docker -n 50 --no-pager` |
+
+---
+
+## ➡️ Что дальше
+
+→ [nginx/](./nginx/) — reverse-proxy Nginx + Certbot, SSL и логи по доменам

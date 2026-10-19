@@ -197,24 +197,68 @@ timedatectl status
 
 ## 6. Swap (для маленьких VPS)
 
-Если RAM ≤ 1–2 ГБ и swap ещё нет:
+Если RAM ≤ 1–2 ГБ, проверь текущий swap:
 
 ```bash
 swapon --show
 free -h
 ```
 
-Пример: файл swap на 2 ГБ:
+### 6.1. Swap ещё нет — создать
+
+Пример: файл на 2 ГБ:
 
 ```bash
 fallocate -l 2G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
+
+# в fstab — только если записи ещё нет
+grep -q '/swapfile' /etc/fstab || echo '/swapfile none swap sw 0 0' >> /etc/fstab
+```
+
+### 6.2. Swap уже есть — увеличить / пересоздать
+
+Если `swapon --show` уже показывает `/swapfile`, а ты хочешь другой размер (например, было `512M`, нужно `2G`):
+
+```text
+fallocate: fallocate failed: Text file busy
+```
+
+Файл занят системой — сначала отключи swap, потом пересоздай:
+
+```bash
+swapoff /swapfile
+rm /swapfile
+
+fallocate -l 2G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+
+swapon --show
+# NAME      TYPE SIZE USED PRIO
+# /swapfile file   2G   0B   -2
+```
+
+Проверь `fstab` (запись должна быть одна):
+
+```bash
+grep swap /etc/fstab
+# /swapfile none swap sw 0 0
+```
+
+Если строки нет — добавь:
+
+```bash
 echo '/swapfile none swap sw 0 0' >> /etc/fstab
 ```
 
-Опционально снизить swappiness:
+> 💡 На очень маленьких дисках `fallocate` иногда недоступен — запасной вариант:  
+> `dd if=/dev/zero of=/swapfile bs=1M count=2048 status=progress`
+
+### 6.3. Swappiness (опционально)
 
 ```bash
 echo 'vm.swappiness=10' > /etc/sysctl.d/99-swappiness.conf
